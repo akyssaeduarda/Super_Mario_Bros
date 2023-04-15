@@ -1,0 +1,158 @@
+*{
+    font-family:'Poppins'; 
+}
+
+
+.cabecalho{ 
+    display:flex;
+    justify-content:space-between;
+    padding: 30px;
+    max-width:1400px;
+    margin:0 auto;
+ 
+}
+
+/*especificando que quer estilizar o elemento de classe 'logo' que esta dentro do elemento de classe 'cabecalho'*/
+.cabecalho .logo{
+    width:65px;
+}
+
+.cabecalho .menu{
+    display:flex;
+    align-items:center;
+    height: 100%;
+    gap:10px;
+}
+
+/*transition - propriedade de transição para aparecer o elemento */
+.cabecalho nav li a{
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    font-size:25px;
+    padding: 10px 20px;
+    border-radius: 50px; 
+    transition: 0.2s;  
+}
+
+.cabecalho nav li a:hover {
+    background-color: #d5011d;
+}
+
+/*calc - {altura de 100vh tirando 32px(que é do header) }
+*/
+.container{
+    max-width:1400px;
+    margin: 0 auto;
+    display:flex;
+    align-items:center;
+    height:calc(100vh - 132px);
+    padding: 0 30px 30px;
+
+}
+
+.container .imagem-titulo {
+    max-width:500px;
+}
+
+.container .descricao {
+    color:#a8adb7;
+    width:85%;
+    font-size:18px;
+    margin:30px 0;
+}
+
+/*transition e tranform - para fazer o efeito no botão*/
+.container .botao-trailer {
+    background-color:#ff0021;
+    color:white;
+    padding:15px;
+    font-size:18px;
+    font-weight: bold;
+    cursor:pointer;
+    border:none;
+    text-transform: uppercase;
+    transition: 0.5s all ease-in-out;
+}
+
+.container .botao-trailer:hover {
+    transform: scale(1.1);
+}
+
+/*css para configuar o video de fundo
+ 'overflow: hidden' - esconde o transbordar do container
+*/
+.fundo-video {
+    background-color: red;
+    position:absolute;
+    z-index:-1;
+    width: 100vw;
+    height: 100vh;
+    overflow:hidden;
+    margin: 0 auto;
+    display:flex;
+    justify-content: center;
+}
+
+.fundo-video .video{
+    height: 100vh;
+ 
+}
+
+/*criando um pseudo-elemento que ficará em cima da div video para fazer o efeito de transparência*/
+.fundo-video::after {
+    content:"";
+    background: linear-gradient(90deg, #040203 0%, rgba(0, 0, 0, 0.85) 49%, #040203 100%);
+    width:100vw;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+/*estilizando a modal
+  'visibility:hidden' - esconde o elemento
+*/
+.modal{
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    top:0;
+    left:0;
+    background-color: rgba(52, 52, 50,0.749);
+    opacity:0;
+    visibility: hidden;
+}
+
+.conteudo-modal {
+   
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+    border-radius: 5px;
+    gap: 15px;
+}
+
+.fechar-modal {
+    background-color:white;
+    color:#f03a17;
+    font-weight:bold;
+    font-size:20px;
+    width:40px;
+    text-align:center;
+    cursor:pointer;
+    border-radius:10px;
+}
+
+.modal iframe {
+    width:640px;
+    height:360px;
+}
+
+/*quando usa duas classes, uma colada a outra é porque ele esta procurando na pimeira classe, uma classe que tenha o segundo nome */
+
+.modal.aberto{
+    opacity: 1;
+    visibility: visible;
+}
